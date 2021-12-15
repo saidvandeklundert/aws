@@ -23,5 +23,5 @@ def respond(err, res=None):
 def lambda_handler(event, context):
 
     print("Received event: " + json.dumps(event, indent=2))
-    scan_result = dynamo.scan(Tablename=table_name)
+    scan_result = dynamo.scan(TableName=table_name)
     return respond(None, res=scan_result)
