@@ -2,7 +2,7 @@
 # https://github.com/amazon-archives/serverless-app-examples/blob/master/python/hello-world-python3/lambda_function.py
 import json
 import os
-import boto
+import boto3
 
 # create client outside of the handler
 region_name = os.environ["REGION_NAME"]
