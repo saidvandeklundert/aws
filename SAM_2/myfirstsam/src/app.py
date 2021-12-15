@@ -16,4 +16,4 @@ def respond(err, res=None):
 def lambda_handler(event, context):
 
     print("Received event: " + json.dumps(event, indent=2))
-    respond(None, res="hello world!")
+    return respond(None, res="hello world!")
