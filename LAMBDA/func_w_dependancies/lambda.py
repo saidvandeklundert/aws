@@ -1,10 +1,13 @@
 import requests as req
-import json
+import os
 
 
 def lambda_handler(event, context):
-
-    resp = req.get("http://www.webcode.me")
-
-    print(resp.text)
-    return {"statusCode": 200, "body": json.dumps("Hello from Lambda!")}
+    resp = req.get("https://whatismyipaddress.com/")
+    ret = ""
+    for line in resp.text.splitlines():
+        if "your ip address" in line.lower():
+            ret = line
+    for k, v in sorted(os.environ.items()):
+        print(k, v)
+    return {"statusCode": 200, "body": ret}
