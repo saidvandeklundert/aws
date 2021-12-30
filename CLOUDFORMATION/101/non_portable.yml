@@ -1,0 +1,14 @@
+# Non portable for 2 reasons:
+#  - the bucket name must be globally unique, so you can deploy this template once
+#  - the AMI name is region specific, so this can be used in us-east-1 only
+Resources:
+  Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: 'mybucket123123321321'
+  Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      KeyName: 'A4L'
+      InstanceType: 't2.micro'
+      ImageId: 'ami-0ed9277fb7eb570c9'
